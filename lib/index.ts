@@ -67,6 +67,7 @@ const callstack = function fn(): string[] {
 export default {
     inspect: (): Package => {
         const callers = callstack()
+        console.dir(callers)
         const self = Array.from(callers)
             .reduceRight((parent, dirname) =>
                 new Package(dirname, parent), undefined as Package | undefined)
